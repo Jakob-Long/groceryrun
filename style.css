@@ -446,7 +446,7 @@ p {
 .welcome-thumb {
     width: 45%;
     position: absolute;
-    bottom: -130px;
+    bottom: 0px;
     right: 85px;
     z-index: 9;
 }
@@ -509,7 +509,7 @@ p {
     min-width: 267px;
     line-height: 46px;
     text-align: center;
-    border-radius: 24px 24px 24px 0px;
+    border-radius: 24px 24px 24px 24px;
     margin-left: 10px;
 }
 
