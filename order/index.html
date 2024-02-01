@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Run</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Grocery Run</h1>
+        <p>Upload your grocery list here!</p>
+
+        <!-- Input Sections Container -->
+        <div id="inputSectionsContainer">
+            <!-- Initial Input Section -->
+            <div class="input-section">
+                <input type="text" id="itemName" name="Item Name" placeholder="Enter item name">
+                <input type="text" id="brand" name="Brand" placeholder="Enter brand">
+
+                <button class="deleteItemBtn" onclick="deleteItem(this)">Remove Item</button>
+            </div>
+        </div>
+
+        <!-- Add New Item Button -->
+        <button id="addNewItemBtn" class="newItem">Add New Item</button>
+        <button id="submitOrderBtn" class="submitOrder">Continue</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
