@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #14685b;
 }
 
 .container {
@@ -10,7 +10,7 @@ body {
     margin: auto;
     text-align: center;
     padding: 20px;
-    background-color: #fff;
+    background-color: #14685b;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -19,18 +19,18 @@ body {
 }
 
 h1 {
-    color: #333;
+    color: #f8b400;
 }
 
 p {
-    color: #666;
+    color: #fff;
 }
 
 /* Form Container Styling */
 form {
     margin-top: 20px;
     padding: 20px;
-    background-color: #fff;
+    background-color: #14685b;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -42,7 +42,7 @@ form {
 /* Input Section Styling */
 .input-section {
     text-align: left;
-    border-bottom: 1px solid black; /* Divider line between items */
+    border-bottom: 1px solid white; /* Divider line between items */
     padding-top: 20px; /* Increased padding to make the divider visible */
 }
 
@@ -58,7 +58,7 @@ input {
     padding: 12px;
     margin-bottom: 15px;
     box-sizing: border-box;
-    border: 1px solid #ccc;
+    border: 1px solid #f8b400;
     border-radius: 30px;
     transition: border-color 0.3s ease;
     height: 48px;
@@ -66,12 +66,12 @@ input {
 
 input:focus {
     outline: none;
-    border-color: #4CAF50;
+    border-color: #f8b400;
 }
 
 /* Button Styling */
 .submitDetailsBtn {
-    background-color: #4CAF50;
+    background-color: #f8b400;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -84,5 +84,5 @@ input:focus {
 }
 
 .submitDetailsBtn:hover {
-    background-color: #45a049;
+    background-color: #ce9803;
 }
