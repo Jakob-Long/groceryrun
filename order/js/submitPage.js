@@ -3,8 +3,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const submittedItemsJson = localStorage.getItem('submittedItems');
     const submittedItems = JSON.parse(submittedItemsJson);
 
-    // Now you can use submittedItems in your submitPage.html
+    // Retrieve selected date and time from the URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const day = urlParams.get('day');
+    const time = urlParams.get('time');
+
+    // Now you can use submittedItems, day, and time in your submitPage.html
     console.log(submittedItems);
+    console.log(day);
+    console.log(time);
 
     // Get the form element
     const deliveryForm = document.getElementById('deliveryForm');
@@ -40,6 +47,19 @@ document.addEventListener('DOMContentLoaded', function () {
     // Call the function to create and append input boxes
     createInputBoxes();
 
+    // Set hidden input fields for selected date and time
+    const inputDate = document.createElement('input');
+    inputDate.type = 'hidden';
+    inputDate.name = 'Day';
+    inputDate.value = day;
+    deliveryForm.appendChild(inputDate);
+
+    const inputTime = document.createElement('input');
+    inputTime.type = 'hidden';
+    inputTime.name = 'Time';
+    inputTime.value = time;
+    deliveryForm.appendChild(inputTime);
+
     // Function to submit user details
     window.submitDetails = function () {
         // Get user details from the form
@@ -56,7 +76,9 @@ document.addEventListener('DOMContentLoaded', function () {
             address: address,
             phone: phone,
             email: email,
-            submittedItems: submittedItems
+            submittedItems: submittedItems,
+            deliveryDate: day,
+            deliveryTime: time
         }));
 
         // Optionally, you can clear the submittedItems from localStorage after using it

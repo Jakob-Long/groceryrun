@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('submittedItems', JSON.stringify(submittedItems));
 
         // Redirect to the submitPage.html
-        window.location.href = 'submitPage.html';
+        window.location.href = 'schedule.html';
     });
 });
 
