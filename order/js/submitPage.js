@@ -1,4 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.querySelector('.slider');
+    const deliveryOptionInput = document.getElementById('deliveryOption');
+
+    slider.addEventListener('click', function () {
+        slider.classList.toggle('clicked');
+        if (slider.classList.contains('clicked')) {
+            deliveryOptionInput.value = 'Pickup';
+        } else {
+            deliveryOptionInput.value = 'Delivery';
+        }
+    });
+
     // Retrieve submitted items from localStorage
     const submittedItemsJson = localStorage.getItem('submittedItems');
     const submittedItems = JSON.parse(submittedItemsJson);
@@ -8,18 +20,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const day = urlParams.get('day');
     const time = urlParams.get('time');
 
-    // Now you can use submittedItems, day, and time in your submitPage.html
     console.log(submittedItems);
     console.log(day);
     console.log(time);
 
-    // Get the form element
     const deliveryForm = document.getElementById('deliveryForm');
 
-    // Function to create and append input boxes for each submitted item
     function createInputBoxes() {
         submittedItems.forEach(item => {
-            // Create a container div for each input section
             const inputSectionContainer = document.createElement('div');
 
             const inputName = document.createElement('input');
@@ -36,18 +44,14 @@ document.addEventListener('DOMContentLoaded', function () {
             inputBrand.readOnly = true;
             inputSectionContainer.appendChild(inputBrand);
 
-            // Set the display property to "none" for the container div
             inputSectionContainer.style.display = 'none';
 
-            // Append the container div to the form
             deliveryForm.appendChild(inputSectionContainer);
         });
     }
 
-    // Call the function to create and append input boxes
     createInputBoxes();
 
-    // Set hidden input fields for selected date and time
     const inputDate = document.createElement('input');
     inputDate.type = 'hidden';
     inputDate.name = 'Day';
@@ -55,22 +59,19 @@ document.addEventListener('DOMContentLoaded', function () {
     deliveryForm.appendChild(inputDate);
 
     const inputTime = document.createElement('input');
-    inputTime.type = 'hidden';
+    inputTime.type = 'text';
     inputTime.name = 'Time';
+    console.log('Selected time:', time);
     inputTime.value = time;
+    inputTime.style.display = 'none';
     deliveryForm.appendChild(inputTime);
 
-    // Function to submit user details
     window.submitDetails = function () {
-        // Get user details from the form
         const name = document.getElementById('name').value.trim();
         const address = document.getElementById('address').value.trim();
         const phone = document.getElementById('phone').value.trim();
         const email = document.getElementById('email').value.trim();
 
-        // Validate the inputs (add your own validation logic here)
-
-        // Save user details to localStorage
         localStorage.setItem('userDetails', JSON.stringify({
             name: name,
             address: address,
@@ -78,12 +79,10 @@ document.addEventListener('DOMContentLoaded', function () {
             email: email,
             submittedItems: submittedItems,
             deliveryDate: day,
-            deliveryTime: time
+            deliveryTime: time,
+            deliveryOption: deliveryOptionInput.value // Add delivery/pickup option
         }));
 
-        // Optionally, you can clear the submittedItems from localStorage after using it
         localStorage.removeItem('submittedItems');
     };
-
-    // Rest of your submitPage.js logic...
 });

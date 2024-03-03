@@ -12,11 +12,19 @@
         <p>Enter your details below:</p>
 
         <!-- Form for user details -->
-        <form id="deliveryForm" action="https://api.sheetmonkey.io/form/dkGKhiZ8XLA5nMKzxYn7sA" method="post">
-            <input type="text" id="address" name="Name" placeholder="Enter your name" required />
+        <form id="deliveryForm" action="https://api.sheetmonkey.io/form/dkGKhiZ8XLA5nMKzxYn7sA" method="post"> <!--https://api.sheetmonkey.io/form/dkGKhiZ8XLA5nMKzxYn7sA-->
+            <input type="text" id="name" name="Name" placeholder="Enter your name" required />
             <input type="text" id="address" name="Address" placeholder="Enter your address" required />
             <input type="text" id="phone" name="Phone" placeholder="Enter your phone number" required />
             <input type="email" id="email" name="Email" placeholder="Enter your email" required />
+
+            <input type="hidden" id="deliveryOption" name="DeliveryOption" value="Delivery" />
+
+            <!-- Slider -->
+            <div class="slider">
+                <div class="slider-text-left">Delivery</div>
+                <div class="slider-text-right">Pickup</div>
+            </div>
 
             <!-- Add a button to submit the form -->
             <input type="submit" class="submitDetailsBtn" value="Order Now" />

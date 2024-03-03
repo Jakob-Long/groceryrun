@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // Check if date has passed
             const dateParts = day.date.split('-');
             const dayDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
+            
             if (dayDate < today) {
                 button.disabled = true; // Disable button if date has passed
                 button.classList.add('disabled'); // Add a class for styling

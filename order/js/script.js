@@ -40,10 +40,18 @@ document.addEventListener('DOMContentLoaded', function () {
         // Redirect to the submitPage.html
         window.location.href = 'schedule.html';
     });
+
+    const popup = document.getElementById('popup');
+    popup.classList.add('show-popup');
 });
 
 function deleteItem(button) {
     // Get the parent node (input section) and remove it
     const inputSection = button.parentNode;
     inputSection.parentNode.removeChild(inputSection);
+}
+
+function hidePopup() {
+    const popup = document.getElementById('popup');
+    popup.style.bottom = '-200px'; // Move the popup below the screen
 }

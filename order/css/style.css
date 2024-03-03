@@ -11,7 +11,7 @@ body {
     text-align: center;
     padding: 20px;
     background-color: #14685b;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 }
 
 h1 {
@@ -117,4 +117,45 @@ input:focus {
 .deleteItemBtn:hover {
     background-color: #f8b400;
     color: white;
+}
+
+.popup {
+    position: fixed;
+    bottom: -200px; /* Initially hide the popup below the screen */
+    left: 0;
+    width: 100%;
+    background-color: #f8b400;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+    transition: bottom 0.5s ease; /* Add smooth transition */
+    z-index: 999; /* Ensure the popup is above other content */
+    text-align: center; /* Center text horizontally */
+}
+
+.popup p {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0;
+}
+
+/* Button styling */
+.understandBtn {
+    background-color: #f8b400;
+    color: white;
+    padding: 10px 30px; /* Adjust padding to create space around the button text */
+    border: 2px solid white;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-top: 15px;
+    font-weight: bold;
+    display: inline-block; /* Make the button a block-level element */
+}
+
+.understandBtn:hover {
+    background-color: #cf9904;
+}
+
+.show-popup {
+    bottom: 0; /* Show the popup by bringing it to the bottom of the screen */
 }
