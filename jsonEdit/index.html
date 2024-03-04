@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JSON Editor</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    label {
+        font-weight: bold;
+    }
+    #output {
+        margin-top: 20px;
+    }
+    #jsonOutput {
+        width: 100%;
+        min-height: 200px;
+        resize: vertical;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-4 mb-4">JSON Editor</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <label for="day">Select a Day:</label>
+            <select id="daySelect" class="form-control">
+                <option value="Sunday">Sunday</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="time">Add Time:</label>
+            <input type="text" id="timeInput" class="form-control" placeholder="HH:MM AM/PM">
+        </div>
+        <div class="col-md-4">
+            <label for="date">Edit Date:</label>
+            <input type="text" id="dateInput" class="form-control" placeholder="YYYY-MM-DD">
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <input type="button" value="Add Time" onclick="addTime()" class="btn btn-primary">
+        </div>
+    </div>
+    <div id="output" class="mt-4">
+        <textarea id="jsonOutput" rows="10" class="form-control" contenteditable="true"></textarea>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <input type="button" value="Save JSON" onclick="saveJSON()" class="btn btn-success">
+        </div>
+    </div>
+</div>
+
+<script>
+    let schedule = {
+        "days": [
+            {
+                "name": "Sunday",
+                "date": "2024-03-03",
+                "times": []
+            },
+            {
+                "name": "Monday",
+                "date": "2024-03-04",
+                "times": []
+            },
+            {
+                "name": "Tuesday",
+                "date": "2024-03-05",
+                "times": []
+            },
+            {
+                "name": "Wednesday",
+                "date": "2024-03-06",
+                "times": []
+            },
+            {
+                "name": "Thursday",
+                "date": "2024-03-07",
+                "times": []
+            },
+            {
+                "name": "Friday",
+                "date": "2024-03-08",
+                "times": []
+            },
+            {
+                "name": "Saturday",
+                "date": "2024-03-09",
+                "times": []
+            }
+        ]
+    };
+
+    function addTime() {
+        const day = document.getElementById("daySelect").value;
+        const time = document.getElementById("timeInput").value;
+        const date = document.getElementById("dateInput").value;
+
+        // Find the day in the schedule
+        const dayObj = schedule.days.find(d => d.name === day);
+        if (dayObj) {
+            dayObj.times.push(time);
+            if (date !== "") {
+                dayObj.date = date;
+            }
+            updateOutput();
+        } else {
+            alert("Day not found in schedule!");
+        }
+    }
+
+    function updateOutput() {
+        const jsonOutput = document.getElementById("jsonOutput");
+        jsonOutput.value = JSON.stringify(schedule, null, 2);
+    }
+
+    function saveJSON() {
+        const jsonContent = document.getElementById("jsonOutput").value;
+        const blob = new Blob([jsonContent], {type: "application/json"});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'schedule.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+</script>
+</body>
+</html>

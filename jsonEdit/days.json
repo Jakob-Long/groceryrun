@@ -1,0 +1,39 @@
+{
+  "days": [
+    {
+      "name": "Sunday",
+      "date": "2024-03-03",
+      "times": ["9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "3:00 PM", "4:00 PM", "5:00 PM"]
+    },
+    {
+      "name": "Monday",
+      "date": "2024-03-04",
+      "times": ["7:45 AM", "4:00 PM", "5:00 PM"]
+    },
+    {
+      "name": "Tuesday",
+      "date": "2024-03-05",
+      "times": ["7:45 AM", "4:00 PM"]
+    },
+    {
+      "name": "Wednesday",
+      "date": "2024-03-06",
+      "times": ["7:45 AM"]
+    },
+    {
+      "name": "Thursday",
+      "date": "2024-03-07",
+      "times": ["7:45 AM"]
+    },
+    {
+      "name": "Friday",
+      "date": "2024-03-08",
+      "times": ["7:45 AM"]
+    },
+    {
+      "name": "Saturday",
+      "date": "2024-03-09",
+      "times": ["9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "7:00 PM"]
+    }
+  ]
+}
