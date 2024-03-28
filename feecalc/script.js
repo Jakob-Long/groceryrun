@@ -18,8 +18,9 @@ function calculateDistance() {
 
                     var distanceInKm = calculateDistanceBetweenPoints(originLat, originLon, destLat, destLon);
                     var distanceInMiles = convertKmToMiles(distanceInKm);
-                    var price = calculatePrice(distanceInMiles);
-                    document.getElementById('result').innerHTML = 'Distance: ' + distanceInMiles.toFixed(2) + ' miles<br>Price: $' + price.toFixed(2);
+                    var orderTotal = parseFloat(document.getElementById('orderTotal').value);
+                    var totalPrice = calculatePrice(orderTotal, distanceInMiles);
+                    document.getElementById('result').innerHTML = 'Distance: ' + distanceInMiles.toFixed(2) + ' miles<br>Total Price: $' + totalPrice.toFixed(2);
                 });
         })
         .catch(error => console.error('Error:', error));
@@ -45,13 +46,28 @@ function convertKmToMiles(km) {
     return km * 0.621371;
 }
 
-function calculatePrice(distanceInMiles) {
-    var basePrice = 12;
-    var pricePerMile = 3;
-    var deliveryCheckbox = document.getElementById('delivery');
-    if (deliveryCheckbox.checked) {
-        return basePrice + (pricePerMile * distanceInMiles);
+function calculateServiceFee(orderTotal) {
+    var baseServiceFee = 5;
+    var percentageFee = 0.15;
+    return baseServiceFee + (orderTotal * percentageFee);
+}
+
+function calculateDeliveryFee(distanceInMiles) {
+    if (distanceInMiles <= 1) {
+        return 5;
+    } else if (distanceInMiles <= 2) {
+        return 9;
+    } else if (distanceInMiles <= 3) {
+        return 12;
+    } else if (distanceInMiles <= 4) {
+        return 14;
     } else {
-        return basePrice;
+        return 15;
     }
+}
+
+function calculatePrice(orderTotal, distanceInMiles) {
+    var serviceFee = calculateServiceFee(orderTotal);
+    var deliveryFee = calculateDeliveryFee(distanceInMiles);
+    return serviceFee + deliveryFee;
 }
