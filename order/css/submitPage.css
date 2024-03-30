@@ -66,6 +66,18 @@ input:focus {
     border-color: #f8b400;
 }
 
+.paymentMethodsBtn {
+    background-color: white;
+    color: #f8b400;
+    padding: 10px 15px;
+    border: 2px solid #f8b400;
+    cursor: pointer;
+    border-radius: 30px;
+    width: 100%;
+    height: 48px;
+    font-weight: bold;
+}
+
 .submitDetailsBtn {
     background-color: #f8b400;
     color: white;

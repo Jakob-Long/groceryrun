@@ -84,5 +84,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }));
 
         localStorage.removeItem('submittedItems');
-    };
+    }; 
 });
+
+function openPaymentMethodDoc() {
+    // Replace 'YOUR_GOOGLE_DOC_URL' with the actual URL of your Google Doc
+    var googleDocUrl = 'https://docs.google.com/document/d/1XsQrTRGmNQfGs3PiLh7mwGuBR217Ovght19ISCUazC8/edit';
+    
+    // Open the Google Doc URL in a new tab
+    window.open(googleDocUrl, '_blank');
+}
