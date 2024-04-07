@@ -47,6 +47,17 @@ document.addEventListener('DOMContentLoaded', function () {
             inputSectionContainer.style.display = 'none';
 
             deliveryForm.appendChild(inputSectionContainer);
+
+            const inputCount = document.createElement('input');
+            inputCount.type = 'number';
+            inputCount.name = 'Item_Count';
+            inputCount.value = item.itemCount;
+            inputCount.readOnly = true;
+            inputSectionContainer.appendChild(inputCount);
+
+            inputSectionContainer.style.display = 'none';
+
+            deliveryForm.appendChild(inputSectionContainer);
         });
     }
 

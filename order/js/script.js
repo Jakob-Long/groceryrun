@@ -21,22 +21,24 @@ document.addEventListener('DOMContentLoaded', function () {
         // Collect item details from input sections
         const inputSections = document.querySelectorAll('.input-section');
         const submittedItems = [];
-
+    
         inputSections.forEach(section => {
             const itemName = section.querySelector('#itemName').value.trim();
             const brand = section.querySelector('#brand').value.trim();
-
+            const itemCount = section.querySelector('#itemCount').value.trim(); // Get item count
+    
             if (itemName !== '' || brand !== '') {
                 submittedItems.push({
                     itemName: itemName,
-                    brand: brand
+                    brand: brand,
+                    itemCount: itemCount // Store item count
                 });
             }
         });
-
+    
         // Save submitted items to localStorage
         localStorage.setItem('submittedItems', JSON.stringify(submittedItems));
-
+    
         // Redirect to the submitPage.html
         window.location.href = 'schedule.html';
     });
