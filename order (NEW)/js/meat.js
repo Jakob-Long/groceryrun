@@ -1,33 +1,33 @@
 document.addEventListener('DOMContentLoaded', function() {
-    displayDairyProducts();
+    displayMeatProducts();
 });
 
-async function displayDairyProducts() {
+async function displayMeatProducts() {
     try {
-        const apiUrl = 'https://world.openfoodfacts.org/cgi/search.pl?search_terms=dairy&json=true';
+        const apiUrl = 'https://world.openfoodfacts.org/cgi/search.pl?search_terms=meat&json=true'; // Change the search term to "meat"
         const response = await fetch(apiUrl);
         const data = await response.json();
 
-        const dairyProductsContainer = document.getElementById('dairy-products');
+        const meatProductsContainer = document.getElementById('meat-products'); // Change to the appropriate container ID for meat products
         const itemCountElement = document.getElementById('item-count');
         
         if (data && data.products && data.products.length > 0) {
-            dairyProductsContainer.innerHTML = ''; // Clear previous results
+            meatProductsContainer.innerHTML = ''; // Clear previous results
             
             const itemCount = data.products.length;
             itemCountElement.textContent = `Showing ${itemCount} items`;
 
             data.products.forEach(product => {
                 const productElement = createProductElement(product);
-                dairyProductsContainer.appendChild(productElement);
+                meatProductsContainer.appendChild(productElement);
             });
         } else {
-            dairyProductsContainer.textContent = 'No dairy products found.';
+            meatProductsContainer.textContent = 'No meat products found.'; // Change to appropriate message for meat products
         }
     } catch (error) {
-        console.error('Error fetching dairy products:', error);
-        const dairyProductsContainer = document.getElementById('dairy-products');
-        dairyProductsContainer.textContent = 'Error fetching dairy products.';
+        console.error('Error fetching meat products:', error); // Change to appropriate error message for meat products
+        const meatProductsContainer = document.getElementById('meat-products'); // Change to the appropriate container ID for meat products
+        meatProductsContainer.textContent = 'Error fetching meat products.'; // Change to appropriate error message for meat products
     }
 }
 

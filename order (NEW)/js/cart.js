@@ -10,17 +10,19 @@ function displayCartItems() {
     if (cartItems.length > 0) {
         cartItemsDiv.innerHTML = ''; // Clear previous items
 
-        // Create a map to count occurrences of each item
+        // Create an object to store counts for each item
         const itemCounts = {};
+
+        // Loop through the cart items and update counts
         cartItems.forEach(item => {
-            // Encode the brand name to handle hyphens
             const key = `${item.name}:${encodeURIComponent(item.brand)}`;
-            itemCounts[key] = (itemCounts[key] || 0) + (item.count || 0); // Update count correctly
+            itemCounts[key] = (itemCounts[key] || 0) + (item.count || 1); // Update count correctly, ensure count is at least 1
         });        
 
         let totalItemCount = 0; // Initialize total item count
         Object.keys(itemCounts).forEach(key => {
             const count = itemCounts[key];
+
             totalItemCount += count; // Update total item count
 
             const [itemName, encodedBrand] = key.split(':');
@@ -42,8 +44,6 @@ function displayCartItems() {
 
         // Update the total item count text
         itemCountText.textContent = `${totalItemCount} items`;
-
-        console.log(localStorage.getItem('cart'));
         
         // Add swipe-to-left functionality
         addSwipeToRevealRemove();
@@ -106,30 +106,34 @@ function addSwipeToRevealRemove() {
             const cartItem = event.target.closest('.cart-item');
             const itemName = cartItem.querySelector('h2').textContent.split(' - ')[0];
             const itemBrand = cartItem.querySelector('p').textContent;
-            
+    
+            // Prevent multiple calls
+            event.stopPropagation();
+    
             // Remove item locally
             removeItemFromCart(itemName, itemBrand);            
             // Remove item from DOM
             cartItem.remove();
         }
-    });    
+    });          
 }
 
 function removeItemFromCart(name, brand) {
     let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
     const index = cartItems.findIndex(item => item.name === name && item.brand === brand);
     if (index !== -1) {
-        // Decrement count by one
-        cartItems[index].count -= 1;
+        // Remove one item at a time
+        cartItems[index].count = Math.max(0, cartItems[index].count - 1);
+        console.log(cartItems[index].count);
         // Remove item if count reaches zero
         if (cartItems[index].count === 0) {
             cartItems.splice(index, 1);
         }
+
         localStorage.setItem('cart', JSON.stringify(cartItems));
-        displayCartItems();
+        location.reload(); 
     }
 }
-
 
 function addEventListenersToAddButtons() {
     const addButtons = document.querySelectorAll('.add-button');
@@ -167,6 +171,7 @@ function updateItemCount(name, brand, count) {
         }
     });
     displayCartItems();
+    location.reload();
 }
 
 // DEVELOPMENTAL PURPOSES BELOW

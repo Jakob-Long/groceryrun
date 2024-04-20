@@ -61,11 +61,11 @@ body {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #41658a;
     color: white;
     padding: 10px 20px;
     margin-top: 20px;
-    border-radius: 5px;
+    border-radius: 15px;
     transition: opacity 0.5s;
     opacity: 0;
     pointer-events: none;

@@ -1,36 +1,37 @@
 document.addEventListener('DOMContentLoaded', function() {
-    displayDairyProducts();
+    displayFruitsAndVegetables();
 });
 
-async function displayDairyProducts() {
+async function displayFruitsAndVegetables() {
     try {
-        const apiUrl = 'https://world.openfoodfacts.org/cgi/search.pl?search_terms=dairy&json=true';
+        const apiUrl = 'https://world.openfoodfacts.org/cgi/search.pl?search_terms=fruits+vegetables&json=true'; // Change the search term to "fruits vegetables"
         const response = await fetch(apiUrl);
         const data = await response.json();
 
-        const dairyProductsContainer = document.getElementById('dairy-products');
+        const fruitsAndVegetablesContainer = document.getElementById('fruitAndVegetable-products'); // Change to the appropriate container ID for fruits and vegetables products
         const itemCountElement = document.getElementById('item-count');
         
         if (data && data.products && data.products.length > 0) {
-            dairyProductsContainer.innerHTML = ''; // Clear previous results
+            fruitsAndVegetablesContainer.innerHTML = ''; // Clear previous results
             
             const itemCount = data.products.length;
             itemCountElement.textContent = `Showing ${itemCount} items`;
 
             data.products.forEach(product => {
                 const productElement = createProductElement(product);
-                dairyProductsContainer.appendChild(productElement);
+                fruitsAndVegetablesContainer.appendChild(productElement);
             });
         } else {
-            dairyProductsContainer.textContent = 'No dairy products found.';
+            fruitsAndVegetablesContainer.textContent = 'No fruits and vegetables products found.'; // Change to appropriate message for fruits and vegetables products
         }
     } catch (error) {
-        console.error('Error fetching dairy products:', error);
-        const dairyProductsContainer = document.getElementById('dairy-products');
-        dairyProductsContainer.textContent = 'Error fetching dairy products.';
+        console.error('Error fetching fruits and vegetables products:', error); // Change to appropriate error message for fruits and vegetables products
+        const fruitsAndVegetablesContainer = document.getElementById('fruits-vegetables-products'); // Change to the appropriate container ID for fruits and vegetables products
+        fruitsAndVegetablesContainer.textContent = 'Error fetching fruits and vegetables products.'; // Change to appropriate error message for fruits and vegetables products
     }
 }
 
+// Function to create product element
 function createProductElement(product) {
     const productElement = document.createElement('div');
     productElement.classList.add('product');
@@ -67,6 +68,7 @@ function createProductElement(product) {
     return productElement;
 }
 
+// Function to add product to cart
 function addToCart(name, brand) {
     let cart = JSON.parse(localStorage.getItem('cart')) || []; // Get existing cart or initialize as empty array
     cart.push({ name, brand }); // Add new item to cart
@@ -75,6 +77,7 @@ function addToCart(name, brand) {
     showPopup();
 }
 
+// Function to show popup
 function showPopup() {
     const popup = document.getElementById('popup');
     popup.classList.add('show');
@@ -90,6 +93,7 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+// Function to clear cart
 function clearCart() {
     localStorage.removeItem('cart');
     console.log('Cart cleared!');
