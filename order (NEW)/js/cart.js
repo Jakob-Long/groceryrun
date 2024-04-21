@@ -174,6 +174,11 @@ function updateItemCount(name, brand, count) {
     location.reload();
 }
 
+function clearCart() {
+    localStorage.removeItem('cart');
+    location.reload();
+}
+
 // DEVELOPMENTAL PURPOSES BELOW
 document.addEventListener('keydown', function(event) {
     if (event.key === 'c') {

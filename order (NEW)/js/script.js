@@ -13,6 +13,11 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = url;
         });
     });
+
+    const cantFindItemButton = document.querySelector('.cant-find-item-button');
+    cantFindItemButton.addEventListener('click', function() {
+        window.location.href = 'add-item.html'; // Redirect to the add-item.html page
+    });
 });
 
 async function handleSubmit(event) {

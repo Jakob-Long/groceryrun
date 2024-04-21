@@ -20,7 +20,7 @@ body {
   
   .search-container {
     position: relative;
-    padding: 0px 30px 30px 20px;
+    padding: 0px 20px 20px 20px;
     /* display: flex; */
     justify-content: center;
 }
@@ -28,7 +28,7 @@ body {
 .search-icon {
     position: absolute;
     left: 32px;
-    top: 32%;
+    top: 19%;
     transform: translateY(-50%);
 }
 
@@ -48,7 +48,7 @@ body {
 
 input[type="text"] {
     padding: 10px 10px 10px 40px;
-    width: calc(100% - 40px); /* Adjust width to accommodate icon */
+    width: calc(100% - 54px); /* Adjust width to accommodate icon */
     height: 20px;
     border: 2px solid black;
     border-radius: 25px;
@@ -97,3 +97,20 @@ input[type="text"] {
     background-color: #41658a; /* Example color for pantry */
     color: white;
   }
+
+.cant-find-item {
+    position: relative;
+    width: calc(100%); /* Same width as the input field */
+    margin: 10px auto;
+}
+
+.cant-find-item-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #41658a;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+}
