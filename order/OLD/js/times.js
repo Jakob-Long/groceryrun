@@ -3,8 +3,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const day = urlParams.get('day');
     document.getElementById('day-heading').textContent = day;
 
-    console.log(day);
-
     fetch('days.json')
     .then(response => response.json())
     .then(data => {
