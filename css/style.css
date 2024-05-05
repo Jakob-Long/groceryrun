@@ -1,0 +1,236 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .browse-header {
+    padding: 30px;
+    /* text-align: center; */
+  }
+  
+  .browse-header h2 {
+    font-weight: bold;
+    font-size: 24px; 
+  }
+
+  h2 {
+    margin: 0;
+  }
+  
+  .search-container {
+    position: relative;
+    padding: 0px 20px 20px 20px;
+    /* display: flex; */
+    justify-content: center;
+}
+
+.search-icon {
+    position: absolute;
+    left: 32px;
+    top: 19%;
+    transform: translateY(-50%);
+}
+
+.search-icon img {
+    width: 20px;
+}
+
+.shopping-cart-icon {
+    position: absolute;
+    top: 97px;
+    right: 30px;
+}
+
+.shopping-cart-icon img {
+    width: 27px;
+}
+
+input[type="text"] {
+    padding: 10px 10px 10px 40px;
+    width: calc(100% - 54px); /* Adjust width to accommodate icon */
+    height: 20px;
+    border: 2px solid black;
+    border-radius: 25px;
+}
+  
+  .food-groups {
+    padding: 10px; /* Match padding with search container */
+    padding-top: 0;
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next row */
+    justify-content: center;
+  }
+  
+  .food-group {
+    width: calc(50% - 40px); /* Calculate 50% width with reduced padding */
+    max-width: 150px; /* Set a maximum width for larger screens */
+    height: calc(50% - 40px); /* Reduced height for smaller food groups */
+    background-color: #f2f2f2;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px; /* Slightly smaller font size */
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 10px; /* Add some margin between food groups */
+    aspect-ratio: 1 / 1;
+  }
+  
+  .dairy {
+    background-image: url('../img/dairy.jpg');
+    background-size: cover; /* Scale the background image to cover the entire div */
+    background-position: center;
+    /* background-color: #41658a; */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .dairy::before {
+    content: "Dairy";
+    margin-top: 10px; /* Adjust this value as needed */
+  }
+  
+  .meat {
+    background-image: url('../img/meat.jpg');
+    background-size: cover; /* Scale the background image to cover the entire div */
+    background-position: center;
+    /* background-color: #41658a; */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .meat::before {
+    content: "Meat";
+    margin-top: 10px; /* Adjust this value as needed */
+  }
+  
+  .fruits-vegetables {
+    background-image: url('../img/fruits-and-vegetables.jpg');
+    background-size: cover; /* Scale the background image to cover the entire div */
+    background-position: center;
+    /* background-color: #41658a; */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.fruits-vegetables::before {
+  content: "F & V";
+  margin-top: 10px; /* Adjust this value as needed */
+}
+
+.pantry {
+  background-image: url('../img/pantry.jpg');
+  background-size: cover; /* Scale the background image to cover the entire div */
+  background-position: center;
+  /* background-color: #41658a; */
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: red;
+}
+
+.pantry::before {
+content: "pantry";
+margin-top: 10px; /* Adjust this value as needed */
+}
+
+
+.fruits-vegetables span {
+    margin: 0;
+}
+
+  .line-break {
+    display: none; /* Initially hide line breaks */
+}
+
+@media only screen and (max-width: 768px) {
+    .line-break {
+        display: inline; /* Display line breaks for smaller screens */
+    }
+}
+  
+  .pantry {
+    background-color: #41658a; /* Example color for pantry */
+    color: white;
+  }
+
+.cant-find-item {
+    position: relative;
+    width: calc(100%); /* Same width as the input field */
+    margin: 10px auto;
+}
+
+.cant-find-item-button {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    background-color: #41658a;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.popup {
+  position: fixed;
+  bottom: -200px; /* Initially hide the popup below the screen */
+  left: 0;
+  width: 100%;
+  background-color: #41658a;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: white;
+  transition: bottom 0.5s ease; /* Add smooth transition */
+  z-index: 999; /* Ensure the popup is above other content */
+  text-align: center; /* Center text horizontally */
+}
+
+.popup p {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 0;
+}
+
+/* Button styling */
+.understandBtn {
+  background-color: #41658a;
+  color: white;
+  padding: 10px 30px; /* Adjust padding to create space around the button text */
+  border: 2px solid white;
+  cursor: pointer;
+  border-radius: 30px;
+  margin-top: 15px;
+  font-weight: bold;
+  display: inline-block; /* Make the button a block-level element */
+}
+
+.show-popup {
+  bottom: 0; /* Show the popup by bringing it to the bottom of the screen */
+}
+
+.banner {
+  background-color: #41658a; /* Example color for the banner */
+  color: white;
+  padding:10px 20px; /* Adjust padding as needed */
+  text-align: center;
+  font-weight: bold;
+}
+
+.banner-link {
+  text-decoration: none; /* Remove default underline */
+  cursor: pointer; /* Show pointer cursor on hover */
+}
