@@ -449,11 +449,12 @@ p {
     bottom: 0px;
     right: 85px;
     z-index: 9;
+    display: flex;
+    justify-content: center;
 }
-
 .welcome-thumb img {
-    height: auto;
-    width: 100%;
+    max-width: 35%; /* Adjust the maximum width as needed */
+    max-height: auto; /* Adjust the maximum height as needed */
 }
 
 @media only screen and (max-width: 600px) {
@@ -469,6 +470,11 @@ p {
     .get-start-area {
         display: flex;
         justify-content: center;
+    }
+
+    .welcome-thumb img {
+        max-width: 50%; /* Adjust the maximum width for mobile */
+        max-height: auto; /* Let the height adjust proportionally */
     }
 }
 
@@ -1056,6 +1062,15 @@ p {
     background: -webkit-gradient(linear, right top, left top, from(#7873ed), to(#a865e1));
     background: -o-linear-gradient(right, #7873ed, #a865e1);
     background: linear-gradient(to left, #7873ed, #a865e1);
+}
+
+.sticky-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    height: 250px;
 }
 
 .membership-description > h2 {

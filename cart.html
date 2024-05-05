@@ -1,0 +1,37 @@
+<!-- Your existing HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-YCF9HN6PNC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-YCF9HN6PNC');
+    </script> -->
+</head>
+<body>
+    <a href="order.html" class="back-arrow">&lt;</a>
+    <h1>Shopping Cart</h1>
+    <p id="item-count" class="item-count"></p>
+    <hr class="separator">
+    
+    <div id="cart-items" class="cart-items">
+        <button class="add-first-item" onclick="addFirstItem()">Add Your First Item!</button>
+    </div>
+    
+    <div class="fixed-bottom-bar">
+        <button class="place-order">Place Order</button>
+        <button class="clear-cart" onclick="clearCart();">Clear Cart</button>
+    </div>    
+
+    <script src="js/cart.js"></script>
+</body>
+</html>

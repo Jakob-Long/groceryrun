@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Grocery Delivery</title>
+        <link rel="stylesheet" href="css/style.css">
+
+        <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-YCF9HN6PNC"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-YCF9HN6PNC');
+        </script> -->
+    </head>
+    <body>
+        <a href="cart.html" class="banner-link">
+            <div class="banner">
+                <p>Claim your free delivery now!</p>
+            </div>
+        </a>
+
+        <a href="cart.html" class="shopping-cart-link">
+            <div class="shopping-cart-icon">
+                <img src="img/cart.png" alt="Shopping Cart">
+            </div>
+        </a>
+
+        <div class="browse-header">
+            <h2>Browse</h2>
+        </div>
+
+        <div class="search-container">
+            <form id="search-form" action="search-results.html" onsubmit="handleSubmit(event)">
+                <div class="search-icon">
+                    <!-- Use an online icon -->
+                    <img src="img/search.png" alt="Search Icon">
+                </div>
+                <input type="text" id="search" placeholder="Search for groceries...">
+            </form>
+            <div class="cant-find-item">
+                <button class="cant-find-item-button">Can't find an item?</button>
+            </div>
+        </div>
+
+        <div class="food-groups">
+            <div class="food-group dairy" id="dairy"></div>
+            <div class="food-group meat" id="meat"></div>
+            <div class="food-group fruits-vegetables" id="fruits-vegetables">
+                <!-- <span class="line-break">Fruits</span><br>
+                <span>&</span><br>
+                <span class="line-break">Vegetables</span> -->
+            </div>            
+            <div class="food-group pantry" id="pantry"></div>
+        </div>
+
+        <div class="popup" id="popup">
+            <p>Due to legal restrictions, we cannot deliver alcohol, tobacco products, or any other items that require you to be 21 years of age or older.</p>
+            <button class="understandBtn" onclick="hidePopup()">I understand</button>
+        </div>
+        
+        <script src="js/script.js"></script>
+    </body>
+</html>
