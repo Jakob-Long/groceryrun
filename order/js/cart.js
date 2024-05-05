@@ -2,6 +2,29 @@ document.addEventListener('DOMContentLoaded', function() {
     displayCartItems();
 });
 
+async function handleSubmit(event) {
+    const groceryItems = ['peanut butter', 'jif', 'traditional sauce', 'pasta', 'macaroni','cheese'];
+    const randomIndex = Math.floor(Math.random() * groceryItems.length);
+    const query = groceryItems[randomIndex];
+
+    if (query) {
+        try {
+            const apiUrl = `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${query}&page_size=10&json=true`;
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+            
+            // Store the search results locally
+            localStorage.setItem('searchResults', JSON.stringify(data.products));
+            
+            // Navigate to the results page
+            window.location.href = `search-results.html`;
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            // Display error message to the user or handle it appropriately
+        }
+    }
+}
+
 function displayCartItems() {
     const cartItemsDiv = document.getElementById('cart-items');
     const itemCountText = document.getElementById('item-count');
@@ -50,9 +73,18 @@ function displayCartItems() {
         // Add event listeners for add buttons
         addEventListenersToAddButtons();
     } else {
-        cartItemsDiv.innerHTML = '<p>No items in the cart</p>';
+        cartItemsDiv.innerHTML = `
+            <button class="add-first-item" onclick="addFirstItem()"><p class="add-first-item-text">Add your first item!</p></button>
+        `;
         itemCountText.textContent = '0 items'; // Set total item count to 0 if cart is empty
     }
+}
+
+function addFirstItem() {
+    handleSubmit({
+        preventDefault: () => {},
+        target: { value: "peanut butter" } // Simulate the search input value
+    });
 }
 
 function addSwipeToRevealRemove() {
