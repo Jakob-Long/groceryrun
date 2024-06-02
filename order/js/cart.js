@@ -85,7 +85,7 @@ function addFirstItem() {
     //     preventDefault: () => {},
     //     target: { value: "peanut butter" }
     // });
-    window.location.href = "../food groups/mealKit.html"
+    window.location.href = "food groups/mealKit.html"
 }
 
 function addSwipeToRevealRemove() {
