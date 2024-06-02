@@ -53,6 +53,54 @@ input[type="text"] {
     border: 2px solid black;
     border-radius: 25px;
 }
+
+.mealKit {
+  width: calc(100% - 81px);
+  max-width: none;
+  height: 140px;
+  background-image: url('../img/mealKit.jpeg');
+  background-size: cover;
+  background-position: center;
+  margin-left: 40px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: 700;
+  z-index: 1; /* Ensure it appears above the attached rectangle */
+  position: relative;
+}
+
+.mealKit::before {
+  content: "MEAL KITS";
+  margin-top: 10px;
+}
+
+.attached-rectangle {
+  width: calc(100% - 81px);
+  max-width: none;
+  height: 50px;
+  background-color: #41658a;
+  margin-left: 40px;
+  border-radius: 0 0 20px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-weight: 700;
+  z-index: 1; /* Ensure it appears below the meal kit */
+  position: relative; /* Establish positioning context */
+  text-align: center; /* Center the text horizontally */
+}
+
+.attached-rectangle span {
+  font-size: 15px; /* Adjust font size as needed */
+  font-weight: 550;
+  color: white; /* Adjust text color as needed */
+}
   
   .food-groups {
     padding: 10px; /* Match padding with search container */
@@ -233,4 +281,50 @@ margin-top: 10px; /* Adjust this value as needed */
 .banner-link {
   text-decoration: none; /* Remove default underline */
   cursor: pointer; /* Show pointer cursor on hover */
+}
+.sale-of-the-week {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f8f8f8;
+}
+
+.sale-of-the-week h3 {
+  text-align: center;
+}
+
+.sale-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sale-item img {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+  border-radius: 5px;
+}
+
+.sale-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.sale-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center items horizontally */
+}
+
+.sale-header h4 {
+  margin: 0;
+  margin-right: 10px; /* Add a gap between the name and price */
+}
+
+.sale-price {
+  font-size: 1.2em;
+  color: #e74c3c;
+  margin: 0;
 }

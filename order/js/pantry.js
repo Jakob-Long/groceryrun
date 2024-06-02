@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    showLoadingPopup();
     displayPantry();
 });
 
@@ -7,6 +8,8 @@ async function displayPantry() {
         const apiUrl = 'https://world.openfoodfacts.org/cgi/search.pl?search_terms=spice&json=true'; // Change the search term to "fruits vegetables"
         const response = await fetch(apiUrl);
         const data = await response.json();
+
+        hideLoadingPopup();
 
         const pantryContainer = document.getElementById('pantry-products'); // Change to the appropriate container ID for fruits and vegetables products
         const itemCountElement = document.getElementById('item-count');
@@ -84,6 +87,16 @@ function showPopup() {
     setTimeout(() => {
         popup.classList.remove('show');
     }, 3000); // Hide popup after 3 seconds
+}
+
+function showLoadingPopup() {
+    const loadingPopup = document.getElementById('loading-popup');
+    loadingPopup.style.display = 'block';
+}
+
+function hideLoadingPopup() {
+    const loadingPopup = document.getElementById('loading-popup');
+    loadingPopup.style.display = 'none';
 }
 
 // DEVELOPMENTAL PURPOSES BELOW

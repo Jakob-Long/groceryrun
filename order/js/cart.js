@@ -81,10 +81,11 @@ function displayCartItems() {
 }
 
 function addFirstItem() {
-    handleSubmit({
-        preventDefault: () => {},
-        target: { value: "peanut butter" } // Simulate the search input value
-    });
+    // handleSubmit({
+    //     preventDefault: () => {},
+    //     target: { value: "peanut butter" }
+    // });
+    window.location.href = "../food groups/mealKit.html"
 }
 
 function addSwipeToRevealRemove() {

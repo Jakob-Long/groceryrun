@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Delivery</title>
+    <link rel="stylesheet" href="../css/search-results.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YCF9HN6PNC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-YCF9HN6PNC');
+    </script>
+</head>
+<body>
+    <a href="../order.html" class="back-arrow">&lt;</a>
+    <h1>Meal Kits</h1>
+    <p id="item-count" class="results-count">3 items</p>
+    <hr class="separator">
+
+    <div class="results" id="results">
+        <div class="mealkit">
+            <img src="../img/memorial.jpeg" alt="">
+            <div class="product-info">
+                <h2>Burger Night Kit</h2>
+                <p class="description">Honor the occasion, complete with premium ingredients and easy recipes</p>
+                <button class="add-button" onclick="clickAddBtn();">+</button>
+                <button class="see-inside-button" data-items="Ground Beef, Buns, Ketchup, Mustard, Relish, Baked Beans, Corn on the cob, Pepsi, Doritos">See What's Inside</button>
+            </div>
+        </div>
+
+        <div class="mealkit">
+            <img src="../img/hotdog.jpeg" alt="">
+            <div class="product-info">
+                <h2>Hotdog Night Kit</h2>
+                <p class="description">Revamp hotdog night with our easy kit: red sausages, artisan buns, and delicious toppings!</p>
+                <button class="add-button" onclick="clickAddBtn();">+</button>
+                <button class="see-inside-button" data-items="Hotdogs, Buns, Mustard, Ketchup, Relish">See What's Inside</button>
+            </div>
+        </div>
+
+        <div class="mealkit">
+            <img src="../img/taco.jpeg" alt="">
+            <div class="product-info">
+                <h2>Summer Taco Kit</h2>
+                <p class="description">Summer sizzles with our taco kit: fresh ingredients, bold flavors, endless fiesta—all in one!</p>
+                <button class="add-button" onclick="clickAddBtn();">+</button>
+                <button class="see-inside-button" data-items="Tortillas, Ground Beef, Salsa, Cheese, Lettuce, Tomatoes, Sour Cream">See What's Inside</button>
+            </div>
+        </div>
+
+        <div id="details-popup" class="details-popup">
+            <div class="details-popup-content">
+                <span class="close-btn" onclick="hideDetailsPopup()">&times;</span>
+                <h2 id="details-title"></h2>
+                <p id="details-description"></p>
+                <ul id="details-list"></ul>
+            </div>
+        </div>
+
+        <div id="popup" class="popup">Item added to cart</div>
+
+        <script src="../js/mealKit.js"></script>
+    </div>
+</body>
+</html>
