@@ -16,6 +16,12 @@
     </script>
 </head>
 <body>
+    <a href="../cart.html" class="shopping-cart-link">
+        <div class="shopping-cart-icon">
+            <img src="../img/cart.png" alt="Shopping Cart">
+        </div>
+    </a>
+
     <a href="../order.html" class="back-arrow">&lt;</a>
     <h1>Meal Kits</h1>
     <p id="item-count" class="results-count">3 items</p>
@@ -26,6 +32,10 @@
             <img src="../img/memorial.jpeg" alt="">
             <div class="product-info">
                 <h2>Burger Night Kit</h2>
+                <span class="price">
+                    <span class="original-price">$59</span>
+                    <span class="sale-price">$49</span>
+                </span>
                 <p class="description">Honor the occasion, complete with premium ingredients and easy recipes</p>
                 <button class="add-button" onclick="clickAddBtn();">+</button>
                 <button class="see-inside-button" data-items="Ground Beef, Buns, Ketchup, Mustard, Relish, Baked Beans, Corn on the cob, Pepsi, Doritos">See What's Inside</button>
@@ -36,6 +46,7 @@
             <img src="../img/hotdog.jpeg" alt="">
             <div class="product-info">
                 <h2>Hotdog Night Kit</h2>
+                <span class="noSale-price">$33</span>
                 <p class="description">Revamp hotdog night with our easy kit: red sausages, artisan buns, and delicious toppings!</p>
                 <button class="add-button" onclick="clickAddBtn();">+</button>
                 <button class="see-inside-button" data-items="Hotdogs, Buns, Mustard, Ketchup, Relish">See What's Inside</button>
@@ -46,6 +57,7 @@
             <img src="../img/taco.jpeg" alt="">
             <div class="product-info">
                 <h2>Summer Taco Kit</h2>
+                <span class="noSale-price">$45</span>
                 <p class="description">Summer sizzles with our taco kit: fresh ingredients, bold flavors, endless fiesta—all in one!</p>
                 <button class="add-button" onclick="clickAddBtn();">+</button>
                 <button class="see-inside-button" data-items="Tortillas, Ground Beef, Salsa, Cheese, Lettuce, Tomatoes, Sour Cream">See What's Inside</button>
@@ -62,6 +74,7 @@
         </div>
 
         <div id="popup" class="popup">Item added to cart</div>
+        <div id="location-popup" class="popup">Please allow location for accurate pricing</div>
 
         <script src="../js/mealKit.js"></script>
     </div>

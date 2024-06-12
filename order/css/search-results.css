@@ -2,6 +2,16 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.shopping-cart-icon {
+    position: absolute;
+    top: 28px;
+    right: 30px;
+}
+
+.shopping-cart-icon img {
+    width: 27px;
+}
+
 .results {
     display: flex;
     flex-direction: column;
@@ -210,4 +220,42 @@ h1 {
 
 .description {
     display: none;
+}
+
+.noSale-price {
+    color: white;
+    font-weight: 550;
+    font-size: 20px;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: 550;
+}
+
+.original-price {
+    position: relative;
+    color: white;
+    font-weight: normal;
+    margin-right: 10px;
+}
+
+.original-price::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 3px; /* Adjust the height of the line as needed */
+    background-color: red; /* Set the color of the line to red */
+    transform: rotate(-20deg);
+    transform-origin: center;
+}
+
+.sale-price {
+    font-weight: 550;
+    font-size: 20px;
+    color: white;
 }

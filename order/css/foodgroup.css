@@ -2,6 +2,16 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.shopping-cart-icon {
+    position: absolute;
+    top: 28px;
+    right: 30px;
+}
+
+.shopping-cart-icon img {
+    width: 27px;
+}
+
 h1 {
     padding-left: 40px;
     padding-top: 20px;

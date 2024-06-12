@@ -4,12 +4,42 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
+.back-arrow {
+    font-size: 35px;
+    color: black;
+    text-decoration: none;
+    /* margin-right: 10px; */
+    display: flex;
+    align-items: center;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the header horizontally */
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+    transform: translateX(-3%);
+
+}
+
+.header-container h1 {
+    margin: 0;
+    text-align: center;
+    flex-grow: 1; /* Allow the heading to take up available space */
+}
+
+.back-arrow-container {
+    position: absolute;
+    left: 0;
+}
+
 .container {
     max-width: 600px;
     margin: auto;
     text-align: center;
     padding: 20px;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,6 +48,7 @@ body {
 
 h1 {
     margin: 0;
+    text-align: center;
 }
 
 p {
@@ -26,9 +57,7 @@ p {
 }
 
 form {
-    /* margin-top: 20px; */
     padding: 20px;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 }
 
 .input-item {
@@ -99,15 +128,14 @@ input:focus {
 }
 
 .slider {
-    width: 100%; /* Set width to 100% */
-    height: 48px; /* Set height to match the button */
+    width: 100%;
+    height: 48px;
     background-color: rgb(48, 48, 48);
     border-radius: 30px;
     cursor: pointer;
     position: relative;
     transition: transform 0.3s ease;
     user-select: none;
-    /* border: 2px solid black; */
 }
 
 .slider::before {
@@ -119,11 +147,11 @@ input:focus {
     height: 100%;
     background-color: #41658a;
     border-radius: 30px 0 0 30px;
-    transition: transform 0.3s ease; /* Change transition property */
+    transition: transform 0.3s ease;
 }
 
 .slider.clicked::before {
-    width: 50%; /* Adjust width to 50% */
+    width: 50%;
     transform: translateX(100%);
     border-radius: 0 30px 30px 0;
 }
@@ -134,14 +162,14 @@ input:focus {
     left: 0;
     width: 50%;
     height: 100%;
-    background-color: #14685b; /* Color of the slider knob */
-    border-radius: 0 20px 20px 0; /* Adjust border-radius for the desired effect */
-    transition: transform 0.3s ease; /* Transition for smooth sliding animation */
+    background-color: #14685b;
+    border-radius: 0 20px 20px 0;
+    transition: transform 0.3s ease;
 }
 
 .slider.clicked .slider-knob {
-    transform: translateX(100%); /* Move the knob to the other side when clicked */
-    border-radius: 20px 0 0 20px; /* Adjust border-radius for the desired effect */
+    transform: translateX(100%);
+    border-radius: 20px 0 0 20px;
 }
 
 .slider-text-left,

@@ -4,34 +4,15 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
-
-#day-heading {
-    font-size: 24px;
-    text-align: left;
-    margin: 0; /* Remove default margin */
-    flex-grow: 1;
-    text-align: center;
-}
-
-.back-arrow {
-    font-size: 35px;
-    color: black;
-    text-decoration: none;
-    margin-right: 10px;
-    display: flex;
-    align-items: center;
-}
-
 .container {
     max-width: 600px;
     margin: 50px auto;
-    text-align: center;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     min-height: 90vh;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    text-align: center;
 }
 
 .header-container {
@@ -41,6 +22,22 @@ body {
     width: 100%;
     margin-bottom: 20px;
     position: relative;
+}
+
+#day-heading {
+    font-size: 24px;
+    text-align: left;
+    margin: 0; /* Remove default margin */
+    flex-grow: 1;
+}
+
+.back-arrow {
+    font-size: 35px;
+    color: black;
+    text-decoration: none;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
 }
 
 p {
@@ -61,7 +58,6 @@ button {
 }
 
 button.disabled {
-    opacity: 0.3; /* Reduce opacity to visually indicate it's disabled */
-    cursor: not-allowed; /* Change cursor to indicate it's not clickable */
+    opacity: 0.3;
+    cursor: not-allowed;
 }
-
