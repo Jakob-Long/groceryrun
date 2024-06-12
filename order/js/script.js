@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         group.addEventListener('click', () => {
             const groupId = group.id;
             // Construct URL based on food group id
-            const url = `food groups/mealkit.html`;
+            const url = `food groups/${groupId}.html`;
             // Navigate to the corresponding page
             window.location.href = url;
         });

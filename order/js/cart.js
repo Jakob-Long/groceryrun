@@ -28,6 +28,8 @@ async function handleSubmit(event) {
 function displayCartItems() {
     const cartItemsDiv = document.getElementById('cart-items');
     const itemCountText = document.getElementById('item-count');
+    const totalPriceElement = document.querySelector('.fixed-bottom-bar h1');
+    const totalPriceHeading = document.querySelector('.fixed-bottom-bar h3');
     const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 
     if (cartItems.length > 0) {
@@ -40,9 +42,11 @@ function displayCartItems() {
         cartItems.forEach(item => {
             const key = `${item.name}:${encodeURIComponent(item.brand)}`;
             itemCounts[key] = (itemCounts[key] || 0) + (item.count || 1); // Update count correctly, ensure count is at least 1
-        });        
+        });
 
         let totalItemCount = 0; // Initialize total item count
+        let totalPrice = 0; // Initialize total price
+        let pricesExist = false; // Track if any prices exist
         Object.keys(itemCounts).forEach(key => {
             const count = itemCounts[key];
 
@@ -54,20 +58,51 @@ function displayCartItems() {
 
             const itemElement = document.createElement('div');
             itemElement.classList.add('cart-item');
-            itemElement.innerHTML = `
-                <div class="cart-info">
-                    <h2>${itemName} - ${count} count</h2>
-                    <p>${itemBrand}</p>
-                    <button class="add-button">+</button>
-                    <button class="remove-button" style="display: none;"><img src="img/trash-bin.png" alt="Trash Icon"></button>
-                </div>
-            `;
-            cartItemsDiv.appendChild(itemElement);
+            const itemPrice = parseFloat(cartItems.find(item => item.name === itemName && item.brand === itemBrand).price);
+            console.log("isNaN(itemPrice): " + isNaN(itemPrice));
+            if (!isNaN(itemPrice)) {
+                pricesExist = true; // Mark that prices exist
+                const itemTotalPrice = itemPrice * count;
+                totalPrice += itemTotalPrice; // Update total price
+                itemElement.innerHTML = `
+                    <div class="cart-info">
+                        <h2>${itemName} - ${count} count</h2>
+                        <p>${itemBrand}</p>
+                        <p>Price: $${itemPrice.toFixed(2)}</p>
+                        <button class="add-button">+</button>
+                        <button class="remove-button" style="display: none;"><img src="img/trash-bin.png" alt="Trash Icon"></button>
+                    </div>
+                `;
+                cartItemsDiv.appendChild(itemElement);
+            } else {
+                itemElement.innerHTML = `
+                    <div class="cart-info">
+                        <h2>${itemName} - ${count} count</h2>
+                        <p>${itemBrand}</p>
+                        <button class="add-button">+</button>
+                        <button class="remove-button" style="display: none;"><img src="img/trash-bin.png" alt="Trash Icon"></button>
+                    </div>
+                `;
+                cartItemsDiv.appendChild(itemElement);
+            }
         });
 
         // Update the total item count text
         itemCountText.textContent = `${totalItemCount} items`;
-        
+
+        console.log("pricesExist: " + pricesExist);
+
+        if (pricesExist) {
+            // Display the total price in the fixed-bottom-bar
+            const formattedTotalPrice = Number.isInteger(totalPrice) ? totalPrice : totalPrice.toFixed(2);
+            totalPriceElement.textContent = `$${formattedTotalPrice}`;
+            totalPriceElement.style.display = 'block';
+            totalPriceHeading.style.display = 'block';
+        } else {
+            totalPriceElement.style.display = 'none';
+            totalPriceHeading.style.display = 'none';
+        }
+
         // Add swipe-to-left functionality
         addSwipeToRevealRemove();
         // Add event listeners for add buttons
@@ -77,14 +112,12 @@ function displayCartItems() {
             <button class="add-first-item" onclick="addFirstItem()"><p class="add-first-item-text">Add your first item!</p></button>
         `;
         itemCountText.textContent = '0 items'; // Set total item count to 0 if cart is empty
+        totalPriceElement.style.display = 'none'; // Hide total price if cart is empty
+        totalPriceHeading.style.display = 'none'; // Hide total price heading if cart is empty
     }
 }
 
 function addFirstItem() {
-    // handleSubmit({
-    //     preventDefault: () => {},
-    //     target: { value: "peanut butter" }
-    // });
     window.location.href = "food groups/mealKit.html"
 }
 

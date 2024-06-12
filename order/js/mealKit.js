@@ -13,8 +13,11 @@ function setupAddButtons() {
             const productInfo = event.target.closest('.mealkit').querySelector('.product-info');
             const name = productInfo.querySelector('h2').textContent;
             const brand = 'Grocery Run'; // Hard-coded brand name
+            
+            let priceElement = productInfo.querySelector('.sale-price') || productInfo.querySelector('.noSale-price');
+            let price = priceElement ? priceElement.textContent.replace('$', '') : 0;
 
-            addToCart(name, brand);
+            addToCart(name, brand, parseFloat(price));
         });
     });
 }
@@ -34,9 +37,9 @@ function setupSeeInsideButtons() {
     });
 }
 
-function addToCart(name, brand) {
+function addToCart(name, brand, price) {
     let cart = JSON.parse(localStorage.getItem('cart')) || []; // Get existing cart or initialize as empty array
-    cart.push({ name, brand }); // Add new item to cart
+    cart.push({ name, brand, price }); // Add new item to cart with price
     localStorage.setItem('cart', JSON.stringify(cart)); // Save updated cart to localStorage
     console.log('Cart:', cart); // Log updated cart to console
     showPopup();
@@ -122,7 +125,7 @@ function showPosition(position) {
 function showError(error) {
     switch (error.code) {
         case error.PERMISSION_DENIED:
-            alert("User denied the request for Geolocation.");
+            alert("Please allow location for accurate pricing.");
             break;
         case error.POSITION_UNAVAILABLE:
             alert("Location information is unavailable.");

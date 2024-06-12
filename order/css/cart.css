@@ -2,6 +2,20 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
+.displayedPrice {
+    padding-top: 20px;
+    padding-left: 0;
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.totalPrice {
+    padding: 0;
+    margin: 0;
+    font-weight: 100;
+    font-size: 17px;
+}
+
 h1 {
     padding-left: 40px;
     padding-top: 20px;
@@ -111,7 +125,7 @@ p {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 130px;
+    /* height: 230px; */
     background-color: #41658a;
     color: white; 
     text-align: center; 
@@ -145,6 +159,7 @@ p {
     border: none; 
     border-radius: 20px;
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .add-first-item {
