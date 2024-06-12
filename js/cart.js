@@ -59,6 +59,7 @@ function displayCartItems() {
             const itemElement = document.createElement('div');
             itemElement.classList.add('cart-item');
             const itemPrice = parseFloat(cartItems.find(item => item.name === itemName && item.brand === itemBrand).price);
+            console.log("isNaN(itemPrice): " + isNaN(itemPrice));
             if (!isNaN(itemPrice)) {
                 pricesExist = true; // Mark that prices exist
                 const itemTotalPrice = itemPrice * count;
@@ -88,6 +89,8 @@ function displayCartItems() {
 
         // Update the total item count text
         itemCountText.textContent = `${totalItemCount} items`;
+
+        console.log("pricesExist: " + pricesExist);
 
         if (pricesExist) {
             // Display the total price in the fixed-bottom-bar
