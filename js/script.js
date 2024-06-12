@@ -14,6 +14,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    const mealKit = document.querySelectorAll('.mealKit');
+    mealKit.forEach(group => {
+        group.addEventListener('click', () => {
+            const groupId = group.id;
+            // Construct URL based on food group id
+            const url = `food groups/${groupId}.html`;
+            // Navigate to the corresponding page
+            window.location.href = url;
+        });
+    });
+
+    const attachedRectangle = document.querySelectorAll('.attached-rectangle');
+    attachedRectangle.forEach(group => {
+        group.addEventListener('click', () => {
+            const groupId = group.id;
+            // Construct URL based on food group id
+            const url = `food groups/mealkit.html`;
+            // Navigate to the corresponding page
+            window.location.href = url;
+        });
+    });
+
     const cantFindItemButton = document.querySelector('.cant-find-item-button');
     cantFindItemButton.addEventListener('click', function() {
         window.location.href = 'add-item.html'; // Redirect to the add-item.html page

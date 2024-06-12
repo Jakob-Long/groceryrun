@@ -121,3 +121,7 @@ function openPaymentMethodDoc() {
     // Open the Google Doc URL in a new tab
     window.open(googleDocUrl, '_blank');
 }
+
+function goBack() {
+    window.history.back();
+}

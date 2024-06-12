@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    showLoadingPopup();
     displayMeatProducts();
 });
 
@@ -7,6 +8,8 @@ async function displayMeatProducts() {
         const apiUrl = 'https://world.openfoodfacts.org/cgi/search.pl?search_terms=meat&json=true'; // Change the search term to "meat"
         const response = await fetch(apiUrl);
         const data = await response.json();
+
+        hideLoadingPopup();
 
         const meatProductsContainer = document.getElementById('meat-products'); // Change to the appropriate container ID for meat products
         const itemCountElement = document.getElementById('item-count');
@@ -81,6 +84,16 @@ function showPopup() {
     setTimeout(() => {
         popup.classList.remove('show');
     }, 3000); // Hide popup after 3 seconds
+}
+
+function showLoadingPopup() {
+    const loadingPopup = document.getElementById('loading-popup');
+    loadingPopup.style.display = 'block';
+}
+
+function hideLoadingPopup() {
+    const loadingPopup = document.getElementById('loading-popup');
+    loadingPopup.style.display = 'none';
 }
 
 // DEVELOPMENTAL PURPOSES BELOW

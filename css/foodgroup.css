@@ -2,6 +2,16 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.shopping-cart-icon {
+    position: absolute;
+    top: 28px;
+    right: 30px;
+}
+
+.shopping-cart-icon img {
+    width: 27px;
+}
+
 h1 {
     padding-left: 40px;
     padding-top: 20px;
@@ -142,4 +152,18 @@ h1 {
 .popup.show {
     opacity: 1;
     pointer-events: auto;
+}
+
+.loading-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #41658a;
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    z-index: 9999;
+    display: none;
+    font-weight: 500;
 }

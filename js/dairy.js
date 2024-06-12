@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    showLoadingPopup();
     displayDairyProducts();
 });
 
@@ -7,6 +8,9 @@ async function displayDairyProducts() {
         const apiUrl = 'https://world.openfoodfacts.org/cgi/search.pl?search_terms=dairy&json=true';
         const response = await fetch(apiUrl);
         const data = await response.json();
+
+        // Hide loading popup when data is loaded
+        hideLoadingPopup();
 
         const dairyProductsContainer = document.getElementById('dairy-products');
         const itemCountElement = document.getElementById('item-count');
@@ -30,6 +34,7 @@ async function displayDairyProducts() {
         dairyProductsContainer.textContent = 'Error fetching dairy products.';
     }
 }
+
 
 function createProductElement(product) {
     const productElement = document.createElement('div');
@@ -81,6 +86,16 @@ function showPopup() {
     setTimeout(() => {
         popup.classList.remove('show');
     }, 3000); // Hide popup after 3 seconds
+}
+
+function showLoadingPopup() {
+    const loadingPopup = document.getElementById('loading-popup');
+    loadingPopup.style.display = 'block';
+}
+
+function hideLoadingPopup() {
+    const loadingPopup = document.getElementById('loading-popup');
+    loadingPopup.style.display = 'none';
 }
 
 // DEVELOPMENTAL PURPOSES BELOW
