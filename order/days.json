@@ -13,17 +13,17 @@
     {
       "name": "Tuesday",
       "date": "2024-06-11",
-      "times": ["7:45 AM"]
+      "times": ["8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "1:00 PM", "2:00 PM"]
     },
     {
       "name": "Wednesday",
       "date": "2024-06-12",
-      "times": ["7:45 AM"]
+      "times": ["8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "1:00 PM", "2:00 PM"]
     },
     {
       "name": "Thursday",
       "date": "2024-06-13",
-      "times": ["8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM"]
+      "times": ["8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "1:00 PM", "2:00 PM"]
     },
     {
       "name": "Friday",
@@ -33,7 +33,7 @@
     {
       "name": "Saturday",
       "date": "2024-06-15",
-      "times": ["1:00 PM", "2:00 PM"]
+      "times": ["8:00 AM", "9:00 AM"]
     }
   ]
 }
