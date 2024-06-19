@@ -27,6 +27,12 @@
         gtag('js', new Date());
 
         gtag('config', 'G-YCF9HN6PNC');
+
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.location.pathname === "/order") {
+                window.location.replace("/order/");
+            }
+        });
     </script>
 
 </head>
