@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         group.addEventListener('click', () => {
             const groupId = group.id;
             // Construct URL based on food group id
-            const url = `food groups/${groupId}.html`;
+            const url = `../food groups/${groupId}.html`;
             // Navigate to the corresponding page
             window.location.href = url;
         });
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         group.addEventListener('click', () => {
             const groupId = group.id;
             // Construct URL based on food group id
-            const url = `food groups/${groupId}.html`;
+            const url = `../food groups/${groupId}.html`;
             // Navigate to the corresponding page
             window.location.href = url;
         });
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         group.addEventListener('click', () => {
             const groupId = group.id;
             // Construct URL based on food group id
-            const url = `food groups/${groupId}.html`;
+            const url = `../food groups/${groupId}.html`;
             // Navigate to the corresponding page
             window.location.href = url;
         });
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const cantFindItemButton = document.querySelector('.cant-find-item-button');
     cantFindItemButton.addEventListener('click', function() {
-        window.location.href = 'add-item.html'; // Redirect to the add-item.html page
+        window.location.href = '../add-item.html'; // Redirect to the add-item.html page
     });
 
     const popup = document.getElementById('popup');
@@ -58,7 +58,7 @@ async function handleSubmit(event) {
             localStorage.setItem('searchResults', JSON.stringify(data.products));
             
             // Navigate to the results page
-            window.location.href = `search-results.html`;
+            window.location.href = `../search-results.html`;
         } catch (error) {
             console.error('Error fetching data:', error);
             // Display error message to the user or handle it appropriately
