@@ -48,11 +48,14 @@ document.addEventListener('DOMContentLoaded', function() {
 async function handleSubmit(event) {
     event.preventDefault();
     const query = document.getElementById('search').value.trim();
+    showLoadingPopup();
     if (query) {
         try {
             const apiUrl = `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${query}&page_size=10&json=true`;
             const response = await fetch(apiUrl);
             const data = await response.json();
+
+            hideLoadingPopup();
             
             // Store the search results locally
             localStorage.setItem('searchResults', JSON.stringify(data.products));
@@ -69,4 +72,14 @@ async function handleSubmit(event) {
 function hidePopup() {
     const popup = document.getElementById('popup');
     popup.style.bottom = '-200px'; // Move the popup below the screen
+}
+
+function showLoadingPopup() {
+    const loadingPopup = document.getElementById('loading-popup');
+    loadingPopup.style.display = 'block';
+}
+
+function hideLoadingPopup() {
+    const loadingPopup = document.getElementById('loading-popup');
+    loadingPopup.style.display = 'none';
 }

@@ -330,3 +330,18 @@ margin-top: 10px; /* Adjust this value as needed */
   color: #e74c3c;
   margin: 0;
 }
+
+.loading-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #41658a;
+  color: white;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid black;
+  z-index: 9999;
+  display: none;
+  font-weight: 500;
+}

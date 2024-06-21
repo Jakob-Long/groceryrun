@@ -249,6 +249,16 @@ document.querySelector('.place-order').addEventListener('click', function() {
     window.location.href = 'schedule.html'; // Replace 'order.html' with the URL of the new page
 });
 
+function orderByPhone() {
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+        // If the user is on a mobile device, use the tel: link
+        window.location.href = "tel:+12073704741";
+    } else {
+        // If the user is on a desktop device, show a prompt
+        alert("Please call us at (207) 370-4741 to place your order.");
+    }
+}
+
 // DEVELOPMENTAL PURPOSES BELOW
 document.addEventListener('keydown', function(event) {
     if (event.key === 'c') {
